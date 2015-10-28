@@ -1,6 +1,6 @@
 <?php
 
-class acf_field_FIELD_NAME extends acf_field {
+class acf_field_disabled extends acf_field {
 	
 	// vars
 	var $settings, // will hold info such as dir / path
@@ -19,13 +19,13 @@ class acf_field_FIELD_NAME extends acf_field {
 	function __construct()
 	{
 		// vars
-		$this->name = 'FIELD_NAME';
-		$this->label = __('FIELD_LABEL');
+		$this->name = 'disabled';
+		$this->label = __('disabled');
 		$this->category = __("Basic",'acf'); // Basic, Content, Choice, etc
 		$this->defaults = array(
 			// add default here to merge into your field. 
 			// This makes life easy when creating the field options as you don't need to use any if( isset('') ) logic. eg:
-			//'preview_size' => 'thumbnail'
+			//'description' => 'thumbnail'
 		);
 		
 		
@@ -71,26 +71,27 @@ class acf_field_FIELD_NAME extends acf_field {
 		?>
 <tr class="field_option field_option_<?php echo $this->name; ?>">
 	<td class="label">
-		<label><?php _e("Preview Size",'acf'); ?></label>
-		<p class="description"><?php _e("Thumbnail is advised",'acf'); ?></p>
+		<label><?php _e("Content",'acf'); ?></label>
+		<p class="description"><?php _e("Enter read only content",'acf'); ?></p>
 	</td>
 	<td>
 		<?php
 		
 		do_action('acf/create_field', array(
-			'type'		=>	'radio',
-			'name'		=>	'fields['.$key.'][preview_size]',
-			'value'		=>	$field['preview_size'],
+			'type'		=>	'textarea',
+			'name'		=>	'fields['.$key.'][description]',
+			'value'		=>	$field['description'],
 			'layout'	=>	'horizontal',
-			'choices'	=>	array(
-				'thumbnail' => __('Thumbnail'),
-				'something_else' => __('Something Else'),
-			)
+			// 'choices'	=>	array(
+				// 'thumbnail' => __('Thumbnail'),
+				// 'something_else' => __('Something Else'),
+			//)
 		));
 		
 		?>
 	</td>
 </tr>
+
 		<?php
 		
 	}
@@ -115,13 +116,13 @@ class acf_field_FIELD_NAME extends acf_field {
 		$field = array_merge($this->defaults, $field);
 		*/
 		
-		// perhaps use $field['preview_size'] to alter the markup?
+		// perhaps use $field['description'] to alter the markup?
 		
 		
 		// create Field HTML
 		?>
 		<div>
-			
+			<textarea disabled ><?php echo $field['description']; ?></textarea>
 		</div>
 		<?php
 	}
@@ -145,18 +146,18 @@ class acf_field_FIELD_NAME extends acf_field {
 		
 		
 		// register ACF scripts
-		wp_register_script( 'acf-input-FIELD_NAME', $this->settings['dir'] . 'js/input.js', array('acf-input'), $this->settings['version'] );
-		wp_register_style( 'acf-input-FIELD_NAME', $this->settings['dir'] . 'css/input.css', array('acf-input'), $this->settings['version'] ); 
+		wp_register_script( 'acf-input-disabled', $this->settings['dir'] . 'js/input.js', array('acf-input'), $this->settings['version'] );
+		wp_register_style( 'acf-input-disabled', $this->settings['dir'] . 'css/input.css', array('acf-input'), $this->settings['version'] ); 
 		
 		
 		// scripts
 		wp_enqueue_script(array(
-			'acf-input-FIELD_NAME',	
+			'acf-input-disabled',	
 		));
 
 		// styles
 		wp_enqueue_style(array(
-			'acf-input-FIELD_NAME',	
+			'acf-input-disabled',	
 		));
 		
 		
@@ -286,7 +287,7 @@ class acf_field_FIELD_NAME extends acf_field {
 		$field = array_merge($this->defaults, $field);
 		*/
 		
-		// perhaps use $field['preview_size'] to alter the $value?
+		// perhaps use $field['description'] to alter the $value?
 		
 		
 		// Note: This function can be removed if not used
@@ -317,7 +318,7 @@ class acf_field_FIELD_NAME extends acf_field {
 		$field = array_merge($this->defaults, $field);
 		*/
 		
-		// perhaps use $field['preview_size'] to alter the $value?
+		// perhaps use $field['description'] to alter the $value?
 		
 		
 		// Note: This function can be removed if not used
@@ -372,6 +373,6 @@ class acf_field_FIELD_NAME extends acf_field {
 
 
 // create field
-new acf_field_FIELD_NAME();
+new acf_field_disabled();
 
 ?>
