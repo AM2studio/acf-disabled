@@ -297,7 +297,7 @@ class acf_field_disabled extends acf_field {
 		
 		
 		// Note: This function can be removed if not used
-		return $value;
+		return $field['default_value']; //$value;
 	}
 	
 	
@@ -328,7 +328,7 @@ class acf_field_disabled extends acf_field {
 		
 		
 		// Note: This function can be removed if not used
-		return $value;
+		return $field['default_value']; // $value;
 	}
 	
 	
