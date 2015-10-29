@@ -2,11 +2,11 @@
 
 /*
 Plugin Name: Advanced Custom Fields: disabled
-Plugin URI: PLUGIN_URL
-Description: SHORT_DESCRIPTION
+Plugin URI: https://github.com/AM2studio/acf-disabled
+Description: ACF disabled / read-only field
 Version: 1.0.0
-Author: AUTHOR_NAME
-Author URI: AUTHOR_URL
+Author: AM2 Studio
+Author URI: https://github.com/AM2studio
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */

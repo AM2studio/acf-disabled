@@ -71,12 +71,12 @@ class acf_field_disabled extends acf_field {
 		?>
 <tr class="field_option field_option_<?php echo $this->name; ?>">
 	<td class="label">
-		<label><?php _e("Content",'acf'); ?></label>
-		<p class="description"><?php _e("Enter read only content",'acf'); ?></p>
+		<label><?php _e("Default value",'acf'); ?></label>
+		<p class="default_value"><?php _e("Enter read only default value",'acf'); ?></p>
 	</td>
 	<td>
 		<?php
-		
+		/*
 		do_action('acf/create_field', array(
 			'type'		=>	'textarea',
 			'name'		=>	'fields['.$key.'][description]',
@@ -86,7 +86,13 @@ class acf_field_disabled extends acf_field {
 				// 'thumbnail' => __('Thumbnail'),
 				// 'something_else' => __('Something Else'),
 			//)
-		));
+		));*/
+				
+		do_action('acf/create_field', array(
+			'type'	=>	'textarea',
+			'name'	=>	'fields['.$key.'][default_value]',
+			'value'	=>	$field['default_value'],
+		));	
 		
 		?>
 	</td>
@@ -122,7 +128,7 @@ class acf_field_disabled extends acf_field {
 		// create Field HTML
 		?>
 		<div>
-			<textarea disabled ><?php echo $field['description']; ?></textarea>
+			<textarea  ><?php echo $field['default_value']; ?></textarea>
 		</div>
 		<?php
 	}
@@ -260,7 +266,7 @@ class acf_field_disabled extends acf_field {
 	function update_value( $value, $post_id, $field )
 	{
 		// Note: This function can be removed if not used
-		return $value;
+		return $field['default_value']; // $value;
 	}
 	
 	
